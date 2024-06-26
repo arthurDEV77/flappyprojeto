@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden; /* Evita a rolagem */
+}
+
+.background {
+    height: 100vh;
+    width: 100vw;
+    background: url('img/background-img.png\ 02.png') repeat-x;
+    position: absolute;
+    top: 0;
+    background-size: cover; /* Preencher toda a tela */
+    z-index: -1; /* Certifique-se de que o fundo está atrás de outros elementos */
+}
+
+#background1 {
+    left: 0;
+}
+
+#background2 {
+    left: 100vw;
+}
+
+.background.paused {
+    animation-play-state: paused;
+}
+
+.bird {
+    height: 10vh;
+    width: auto;
+    position: absolute;
+    top: 40vh;
+    left: 30vw;
+    z-index: 100;
+    background: url('img/abelhaofinal.gif') no-repeat center;
+    background-size: contain;
+}
+
+.pipe_sprite {
+    position: absolute;
+    left: 100vw;
+    height: 70vh;
+    width: 6vw;
+    background: url('img/cano.png') no-repeat center;
+    background-size: cover;
+}
+
+.pipe_sprite.top {
+    transform: rotate(180deg);
+}
+
+.message {
+    position: absolute;
+    z-index: 10;
+    color: black;
+    top: 30%;
+    left: 50%;
+    font-size: 4em;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    animation: game-over-animation 1s infinite alternate;
+}
+
+.messageStyle {
+    background: url('img/game.start.gif');
+}
+
+.score {
+    position: absolute;
+    z-index: 10;
+    height: 10vh;
+    font-size: 10vh;
+    font-weight: 100;
+    color: rgb(98, 19, 244);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    font-family: "Pixelify Sans", sans-serif;
+    animation: score-animation 1s infinite alternate;
+}
+
+.score_val {
+    color: gold;
+    font-weight: bold;
+}
+
+@keyframes score-animation {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+@keyframes game-over-animation {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    100% { transform: translate(-50%, -50%) scale(1.1); }
+}
+
+.start-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 3em;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.start-screen h1 {
+    font-size: 4em;
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 1080px) {
+    .message {
+        font-size: 50px;
+        top: 50%;
+        white-space: nowrap;
+    }
+    .score {
+        font-size: 8vh;
+    }
+    .bird {
+        width: 120px;
+        height: 90px;
+    }
+    .pipe_sprite {
+        width: 15vw;
+    }
+}
